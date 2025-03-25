@@ -23,13 +23,13 @@ package
       
       public static const MOD_NAME:String = "HUDCondition";
       
-      public static const MOD_VERSION:String = "1.0.0";
+      public static const MOD_VERSION:String = "1.0.1";
       
       public static const FULL_MOD_NAME:String = MOD_NAME + " " + MOD_VERSION;
       
       public static const CONFIG_FILE:String = "../HUDCondition.json";
       
-      public static const CONFIG_RELOAD_TIME:uint = 2000;
+      public static const CONFIG_RELOAD_TIME:uint = 1000;
       
       private static const TITLE_HUDMENU:String = "HUDMenu";
        
@@ -258,7 +258,7 @@ package
                {
                   return;
                }
-               if(!config.instantConfigReload && configReloadIndex % 5 != 0)
+               if(!config.instantConfigReload && configReloadIndex % 10 != 0)
                {
                   return;
                }
@@ -702,6 +702,10 @@ package
                   }
                   j++;
                }
+            }
+            if(config.metrics)
+            {
+               displayMessage(this.lastRenderTime + "/" + this.lastConditionsTime + " ms");
             }
             if(config.debug)
             {
