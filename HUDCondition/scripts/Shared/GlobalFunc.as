@@ -28,6 +28,14 @@ package Shared
       
       public static const PLAYER_ICON_TEXTURE_BUFFER:String = "AvatarTextureBuffer";
       
+      public static const STORE_IMAGE_TEXTURE_BUFFER:String = "StoreTextureBuffer";
+      
+      public static const ACCOUNT_UPGRADES_STORE_IMAGE_TEXTURE_BUFFER:String = "AccountUpgradesStoreTextureBuffer";
+      
+      public static const MAP_TEXTURE_BUFFER:String = "MapMenuTextureBuffer";
+      
+      public static const CHARACTER_PROFILE_TEXTURE_BUFFER:String = "CharacterProfileTextureBuffer";
+      
       protected static const CLOSE_ENOUGH_EPSILON:Number = 0.001;
       
       public static const MAX_TRUNCATED_TEXT_LENGTH:* = 42;

@@ -23,13 +23,13 @@ package
       
       public static const MOD_NAME:String = "HUDCondition";
       
-      public static const MOD_VERSION:String = "1.0.1";
+      public static const MOD_VERSION:String = "1.0.2";
       
       public static const FULL_MOD_NAME:String = MOD_NAME + " " + MOD_VERSION;
       
       public static const CONFIG_FILE:String = "../HUDCondition.json";
       
-      public static const CONFIG_RELOAD_TIME:uint = 1000;
+      public static const CONFIG_RELOAD_TIME:uint = 975;
       
       private static const TITLE_HUDMENU:String = "HUDMenu";
        
@@ -406,6 +406,7 @@ package
          this.TextureLoader.y = config.BackgroundImage.offset.y;
          this.TextureLoader.scaleX = config.BackgroundImage.scale.x;
          this.TextureLoader.scaleY = config.BackgroundImage.scale.y;
+         this.TextureLoader.visible = !config.BackgroundImage.disable;
       }
       
       private function initMovieClips() : void
@@ -432,15 +433,21 @@ package
       
       private function loadTextures() : void
       {
-         TextureLoader.LoadExternal(config.BackgroundImage.image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
-         var i:int = 0;
-         while(i < PARTS.length)
+         if(!config.BackgroundImage.disable)
          {
-            if(config.Parts[PARTS[i]].image != null && config.Parts[PARTS[i]].image.length > 4)
+            TextureLoader.LoadExternal(config.BackgroundImage.image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
+         }
+         if(!config.Parts.disable)
+         {
+            var i:int = 0;
+            while(i < PARTS.length)
             {
-               TEXTURES[i].LoadExternal(config.Parts[PARTS[i]].image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
+               if(config.Parts[PARTS[i]].image != null && config.Parts[PARTS[i]].image.length > 4)
+               {
+                  TEXTURES[i].LoadExternal(config.Parts[PARTS[i]].image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
+               }
+               i++;
             }
-            i++;
          }
       }
       
@@ -640,6 +647,7 @@ package
          var index:int;
          var len:int;
          var foundParts:Array = new Array(PARTS.length);
+         var foundWeapon:Boolean = false;
          try
          {
             t1 = Number(getTimer());
@@ -657,29 +665,33 @@ package
                {
                   if(this.conditions[i].filterFlag & 8 || this.conditions[i].filterFlag & 0x10)
                   {
-                     j = 0;
-                     while(j < PARTS.length)
+                     if(!config.Parts.disable)
                      {
-                        if(!foundParts[j])
+                        j = 0;
+                        while(j < PARTS.length)
                         {
-                           index = int(ArrayUtils.indexOfCaseInsensitiveString(config.Parts[PARTS[j]].text,this.conditions[i].text));
-                           if(index != -1)
+                           if(!foundParts[j])
                            {
-                              loadConditionalImage(j,this.conditions[i].percentHealth);
-                              if(TEXTFIELDS[j].visible)
+                              index = int(ArrayUtils.indexOfCaseInsensitiveString(config.Parts[PARTS[j]].text,this.conditions[i].text));
+                              if(index != -1)
                               {
-                                 TEXTFIELDS[j].text = this.conditions[i].percentHealth.toFixed(config.percentDecimals) + "%";
-                                 applyConditionColor(TEXTFIELDS[j],this.conditions[i].percentHealth);
+                                 loadConditionalImage(j,this.conditions[i].percentHealth);
+                                 if(TEXTFIELDS[j].visible)
+                                 {
+                                    TEXTFIELDS[j].text = this.conditions[i].percentHealth.toFixed(config.percentDecimals) + "%";
+                                    applyConditionColor(TEXTFIELDS[j],this.conditions[i].percentHealth);
+                                 }
+                                 foundParts[j] = true;
+                                 break;
                               }
-                              foundParts[j] = true;
-                              break;
                            }
+                           j++;
                         }
-                        j++;
                      }
                   }
                   else if(this.conditions[i].filterFlag & 4)
                   {
+                     foundWeapon = true;
                      if(config.Weapon.showCondition)
                      {
                         this.WEAPON_tf.text = conditions[i].text.substr(0,config.Weapon.textLength) + "  " + this.conditions[i].percentHealth.toFixed(config.percentDecimals) + "%";
@@ -701,6 +713,10 @@ package
                      TEXTFIELDS[j].text = "";
                   }
                   j++;
+               }
+               if(!foundWeapon)
+               {
+                  this.WEAPON_tf.text = "";
                }
             }
             if(config.metrics)
@@ -729,6 +745,13 @@ package
                while(i < TEXTURES.length)
                {
                   displayMessage(PARTS[i] + ": " + this.TEXTURES[i].bitmapInstance + " : " + this.TEXTURES[i].imagePath);
+                  i++;
+               }
+               displayMessage(" ");
+               i = 0;
+               while(i < PARTS.length)
+               {
+                  displayMessage(PARTS[i] + " o:" + config.Parts[PARTS[i]].offsetImage.x + "," + config.Parts[PARTS[i]].offsetImage.y + " s:" + config.Parts[PARTS[i]].scaleImage.x + "," + config.Parts[PARTS[i]].scaleImage.y);
                   i++;
                }
             }

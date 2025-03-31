@@ -15,6 +15,7 @@ package
       private static const PARTS:Array = ["LeftArm","RightArm","LeftLeg","RightLeg","Chest","Hat"];
       
       private static const DEFAULT_PARTS:Object = {
+         "disable":false,
          "Hat":{
             "text":["helmet","hat"],
             "image":TEXTURES_LOCATION + "Hat/White.dds",
@@ -457,6 +458,7 @@ package
             errorCode = "BackgroundImage";
             if(config.BackgroundImage != null)
             {
+               config.BackgroundImage.disable = Boolean(config.BackgroundImage.disable);
                errorCode = "BackgroundImage.image";
                config.BackgroundImage.image = getImageDir(config.BackgroundImage.image,"Underarmor/VaultBoy/White.dds");
                errorCode = "BackgroundImage.offset";
@@ -503,6 +505,7 @@ package
             errorCode = "Parts";
             if(config.Parts != null)
             {
+               config.Parts.disable = Boolean(config.Parts.disable);
                p = 0;
                while(p < PARTS.length)
                {
