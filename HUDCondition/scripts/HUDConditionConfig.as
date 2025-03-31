@@ -878,7 +878,7 @@ package
                      config.Parts[PARTS[p]].gradients = parseArray(config.Parts[PARTS[p]].gradients,DEFAULT_PARTS[PARTS[p]].gradients);
                      config.Parts[PARTS[p]].offsetText = parsePoint(config.Parts[PARTS[p]].offsetText,DEFAULT_PARTS[PARTS[p]].offsetText.x,DEFAULT_PARTS[PARTS[p]].offsetText.y);
                      config.Parts[PARTS[p]].offsetImage = parsePoint(config.Parts[PARTS[p]].offsetImage,DEFAULT_PARTS[PARTS[p]].offsetImage.x,DEFAULT_PARTS[PARTS[p]].offsetImage.y);
-                     config.Parts[PARTS[p]].scaleImage = parsePoint(config.Parts[PARTS[p]].scaleImage,1,1);
+                     config.Parts[PARTS[p]].scaleImage = parsePoint(config.Parts[PARTS[p]].scaleImage,DEFAULT_PARTS[PARTS[p]].scaleImage.x,DEFAULT_PARTS[PARTS[p]].scaleImage.y);
                      config.Parts[PARTS[p]].showPercentage = Boolean(config.Parts[PARTS[p]].showPercentage);
                      g = 0;
                      while(g < config.Parts[PARTS[p]].gradients.length)
@@ -952,7 +952,7 @@ package
                      config.PowerArmor_Parts[PARTS[p]].gradients = parseArray(config.PowerArmor_Parts[PARTS[p]].gradients,DEFAULT_PA_PARTS[PARTS[p]].gradients);
                      config.PowerArmor_Parts[PARTS[p]].offsetText = parsePoint(config.PowerArmor_Parts[PARTS[p]].offsetText,DEFAULT_PA_PARTS[PARTS[p]].offsetText.x,DEFAULT_PA_PARTS[PARTS[p]].offsetText.y);
                      config.PowerArmor_Parts[PARTS[p]].offsetImage = parsePoint(config.PowerArmor_Parts[PARTS[p]].offsetImage,DEFAULT_PA_PARTS[PARTS[p]].offsetImage.x,DEFAULT_PA_PARTS[PARTS[p]].offsetImage.y);
-                     config.PowerArmor_Parts[PARTS[p]].scaleImage = parsePoint(config.PowerArmor_Parts[PARTS[p]].scaleImage,1,1);
+                     config.PowerArmor_Parts[PARTS[p]].scaleImage = parsePoint(config.PowerArmor_Parts[PARTS[p]].scaleImage,DEFAULT_PA_PARTS[PARTS[p]].scaleImage.x,DEFAULT_PA_PARTS[PARTS[p]].scaleImage.y);
                      config.PowerArmor_Parts[PARTS[p]].showPercentage = Boolean(config.PowerArmor_Parts[PARTS[p]].showPercentage);
                      g = 0;
                      while(g < config.PowerArmor_Parts[PARTS[p]].gradients.length)
