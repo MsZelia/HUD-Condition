@@ -64,6 +64,8 @@ package
       
       private var CharacterInfoData:*;
       
+      public var inPowerArmor:Boolean = false;
+      
       private var conditions_tf:Array;
       
       private var conditions_index:int = 0;
@@ -215,6 +217,16 @@ package
          {
             trace(MOD_NAME + " not added to stage: " + getQualifiedClassName(this.topLevel));
             ShowHUDMessage("Not added to stage: " + getQualifiedClassName(this.topLevel));
+         }
+      }
+      
+      public function isHUDModeDataChanged() : void
+      {
+         if(config && config.useDynamicPowerArmorParts && this.inPowerArmor != this.HUDModeData.data.inPowerArmor)
+         {
+            this.inPowerArmor = this.HUDModeData.data.inPowerArmor;
+            initPartsConfig();
+            loadTextures();
          }
       }
       
@@ -383,17 +395,19 @@ package
       private function initPartsConfig() : void
       {
          var i:int = 0;
+         var lparts:* = this.inPowerArmor ? config.PowerArmor_Parts : config.Parts;
+         var lbgImage:* = this.inPowerArmor ? config.PowerArmor_BackgroundImage : config.BackgroundImage;
          while(i < PARTS.length)
          {
             applyConfig(TEXTFIELDS[i]);
-            TEXTFIELDS[i].x = config.Parts[PARTS[i]].offsetText.x;
-            TEXTFIELDS[i].y = config.Parts[PARTS[i]].offsetText.y;
-            TEXTFIELDS[i].visible = config.Parts[PARTS[i]].showPercentage;
-            TEXTURES[i].x = config.Parts[PARTS[i]].offsetImage.x;
-            TEXTURES[i].y = config.Parts[PARTS[i]].offsetImage.y;
-            TEXTURES[i].scaleX = config.Parts[PARTS[i]].scaleImage.x;
-            TEXTURES[i].scaleY = config.Parts[PARTS[i]].scaleImage.y;
-            TEXTURES[i].LoadExternal(config.Parts[PARTS[i]].image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
+            TEXTFIELDS[i].x = lparts[PARTS[i]].offsetText.x;
+            TEXTFIELDS[i].y = lparts[PARTS[i]].offsetText.y;
+            TEXTFIELDS[i].visible = lparts[PARTS[i]].showPercentage;
+            TEXTURES[i].x = lparts[PARTS[i]].offsetImage.x;
+            TEXTURES[i].y = lparts[PARTS[i]].offsetImage.y;
+            TEXTURES[i].scaleX = lparts[PARTS[i]].scaleImage.x;
+            TEXTURES[i].scaleY = lparts[PARTS[i]].scaleImage.y;
+            TEXTURES[i].LoadExternal(lparts[PARTS[i]].image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
             i++;
          }
          if(config.Weapon.showCondition)
@@ -402,11 +416,11 @@ package
             this.WEAPON_tf.x = config.Weapon.offsetText.x;
             this.WEAPON_tf.y = config.Weapon.offsetText.y;
          }
-         this.TextureLoader.x = config.BackgroundImage.offset.x;
-         this.TextureLoader.y = config.BackgroundImage.offset.y;
-         this.TextureLoader.scaleX = config.BackgroundImage.scale.x;
-         this.TextureLoader.scaleY = config.BackgroundImage.scale.y;
-         this.TextureLoader.visible = !config.BackgroundImage.disable;
+         this.TextureLoader.x = lbgImage.offset.x;
+         this.TextureLoader.y = lbgImage.offset.y;
+         this.TextureLoader.scaleX = lbgImage.scale.x;
+         this.TextureLoader.scaleY = lbgImage.scale.y;
+         this.TextureLoader.visible = !config.disableBackgroundImage;
       }
       
       private function initMovieClips() : void
@@ -421,30 +435,32 @@ package
          this.TextureBase_mc.y = config.y;
          this.TextureBase_mc.scaleX = config.imagesScale.x;
          this.TextureBase_mc.scaleY = config.imagesScale.y;
-         if(config.BackgroundImage.adjustColor)
-         {
-            applyColorMatrixFilter(this.TextureLoader,config.BackgroundImage.color);
-         }
-         else
-         {
-            this.TextureLoader.filters = [];
-         }
       }
       
       private function loadTextures() : void
       {
-         if(!config.BackgroundImage.disable)
+         if(!config.disableBackgroundImage)
          {
-            TextureLoader.LoadExternal(config.BackgroundImage.image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
+            var lbgImage:* = this.inPowerArmor ? config.PowerArmor_BackgroundImage : config.BackgroundImage;
+            if(lbgImage.adjustColor)
+            {
+               applyColorMatrixFilter(this.TextureLoader,lbgImage.color);
+            }
+            else
+            {
+               this.TextureLoader.filters = [];
+            }
+            TextureLoader.LoadExternal(lbgImage.image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
          }
-         if(!config.Parts.disable)
+         if(!config.disableParts)
          {
             var i:int = 0;
+            var lparts:* = this.inPowerArmor ? config.PowerArmor_Parts : config.Parts;
             while(i < PARTS.length)
             {
-               if(config.Parts[PARTS[i]].image != null && config.Parts[PARTS[i]].image.length > 4)
+               if(lparts[PARTS[i]].image != null && lparts[PARTS[i]].image.length > 4)
                {
-                  TEXTURES[i].LoadExternal(config.Parts[PARTS[i]].image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
+                  TEXTURES[i].LoadExternal(lparts[PARTS[i]].image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
                }
                i++;
             }
@@ -610,10 +626,11 @@ package
       {
          var partName:String = PARTS[partId];
          var isImageLoaded:Boolean = false;
+         var lparts:* = this.inPowerArmor ? config.PowerArmor_Parts : config.Parts;
          var i:int = 0;
-         while(i < config.Parts[partName].gradients.length)
+         while(i < lparts[partName].gradients.length)
          {
-            var gradient:Object = config.Parts[partName].gradients[i];
+            var gradient:Object = lparts[partName].gradients[i];
             if(cnd <= gradient.belowPercent)
             {
                if(TEXTURES[partId].imagePath != gradient.image)
@@ -633,9 +650,9 @@ package
             }
             i++;
          }
-         if(!isImageLoaded && TEXTURES[partId].imagePath != config.Parts[partName].image)
+         if(!isImageLoaded && TEXTURES[partId].imagePath != lparts[partName].image)
          {
-            TEXTURES[partId].LoadExternal(config.Parts[partName].image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
+            TEXTURES[partId].LoadExternal(lparts[partName].image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
          }
       }
       
@@ -646,6 +663,7 @@ package
          var j:int;
          var index:int;
          var len:int;
+         var lparts:*;
          var foundParts:Array = new Array(PARTS.length);
          var foundWeapon:Boolean = false;
          try
@@ -656,7 +674,9 @@ package
             {
                return;
             }
+            this.isHUDModeDataChanged();
             this.resetMessages();
+            lparts = this.inPowerArmor ? config.PowerArmor_Parts : config.Parts;
             if(this.conditions.length > 0)
             {
                foundPart = false;
@@ -665,14 +685,14 @@ package
                {
                   if(this.conditions[i].filterFlag & 8 || this.conditions[i].filterFlag & 0x10)
                   {
-                     if(!config.Parts.disable)
+                     if(!config.disableParts)
                      {
                         j = 0;
                         while(j < PARTS.length)
                         {
                            if(!foundParts[j])
                            {
-                              index = int(ArrayUtils.indexOfCaseInsensitiveString(config.Parts[PARTS[j]].text,this.conditions[i].text));
+                              index = int(ArrayUtils.indexOfCaseInsensitiveString(lparts[PARTS[j]].text,this.conditions[i].text));
                               if(index != -1)
                               {
                                  loadConditionalImage(j,this.conditions[i].percentHealth);
@@ -727,8 +747,9 @@ package
             {
                displayMessage(FULL_MOD_NAME);
                displayMessage("HUDMode: " + this.HUDModeData.data.hudMode);
+               displayMessage("inPA: " + this.inPowerArmor);
                displayMessage("RenderTime: " + this.lastRenderTime + "/" + this.lastConditionsTime + " ms");
-               displayMessage("ConfigUpdate: " + (getTimer() - this.lastConfigUpdateTime) / 1000 + "s ago");
+               displayMessage("ConfigUpdate: " + ((getTimer() - this.lastConfigUpdateTime) / 1000).toFixed(2) + "s ago");
                displayMessage("ConfigReloadIndex: " + this.configReloadIndex);
                if(this.conditions.length > 0)
                {
@@ -744,14 +765,8 @@ package
                i = 0;
                while(i < TEXTURES.length)
                {
-                  displayMessage(PARTS[i] + ": " + this.TEXTURES[i].bitmapInstance + " : " + this.TEXTURES[i].imagePath);
-                  i++;
-               }
-               displayMessage(" ");
-               i = 0;
-               while(i < PARTS.length)
-               {
-                  displayMessage(PARTS[i] + " o:" + config.Parts[PARTS[i]].offsetImage.x + "," + config.Parts[PARTS[i]].offsetImage.y + " s:" + config.Parts[PARTS[i]].scaleImage.x + "," + config.Parts[PARTS[i]].scaleImage.y);
+                  displayMessage(PARTS[i] + " o:" + lparts[PARTS[i]].offsetImage.x + "," + lparts[PARTS[i]].offsetImage.y + " s:" + lparts[PARTS[i]].scaleImage.x + "," + lparts[PARTS[i]].scaleImage.y);
+                  displayMessage(this.TEXTURES[i].bitmapInstance + " : " + this.TEXTURES[i].imagePath);
                   i++;
                }
             }

@@ -15,7 +15,6 @@ package
       private static const PARTS:Array = ["LeftArm","RightArm","LeftLeg","RightLeg","Chest","Hat"];
       
       private static const DEFAULT_PARTS:Object = {
-         "disable":false,
          "Hat":{
             "text":["helmet","hat"],
             "image":TEXTURES_LOCATION + "Hat/White.dds",
@@ -378,6 +377,369 @@ package
          }
       };
       
+      private static const DEFAULT_PA_PARTS:Object = {
+         "Hat":{
+            "text":["helmet","hat"],
+            "image":TEXTURES_LOCATION + "PowerArmor/Helmet/White.dds",
+            "gradients":[{
+               "belowPercent":5,
+               "image":TEXTURES_LOCATION + "PowerArmor/Helmet/Red.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":20,
+               "image":TEXTURES_LOCATION + "PowerArmor/Helmet/Red.dds",
+               "hue":20,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":35,
+               "image":TEXTURES_LOCATION + "PowerArmor/Helmet/Yellow.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":100,
+               "image":TEXTURES_LOCATION + "PowerArmor/Helmet/White.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":160,
+               "image":TEXTURES_LOCATION + "PowerArmor/Helmet/Green.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":300,
+               "image":TEXTURES_LOCATION + "PowerArmor/Helmet/Teal.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            }],
+            "offsetText":{
+               "x":60,
+               "y":-15
+            },
+            "offsetImage":{
+               "x":0,
+               "y":0
+            },
+            "scaleImage":{
+               "x":0.6,
+               "y":0.6
+            },
+            "showPercentage":true
+         },
+         "RightArm":{
+            "text":["right arm"," ra "],
+            "image":TEXTURES_LOCATION + "PowerArmor/RightArm/White.dds",
+            "gradients":[{
+               "belowPercent":5,
+               "image":TEXTURES_LOCATION + "PowerArmor/RightArm/Red.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":20,
+               "image":TEXTURES_LOCATION + "PowerArmor/RightArm/Red.dds",
+               "hue":20,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":35,
+               "image":TEXTURES_LOCATION + "PowerArmor/RightArm/Yellow.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":100,
+               "image":TEXTURES_LOCATION + "PowerArmor/RightArm/White.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":160,
+               "image":TEXTURES_LOCATION + "PowerArmor/RightArm/Green.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":300,
+               "image":TEXTURES_LOCATION + "PowerArmor/RightArm/Teal.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            }],
+            "offsetText":{
+               "x":0,
+               "y":25
+            },
+            "offsetImage":{
+               "x":0,
+               "y":0
+            },
+            "scaleImage":{
+               "x":0.6,
+               "y":0.6
+            },
+            "showPercentage":true
+         },
+         "LeftArm":{
+            "text":["left arm"," la "],
+            "image":TEXTURES_LOCATION + "PowerArmor/LeftArm/White.dds",
+            "gradients":[{
+               "belowPercent":5,
+               "image":TEXTURES_LOCATION + "PowerArmor/LeftArm/Red.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":20,
+               "image":TEXTURES_LOCATION + "PowerArmor/LeftArm/Red.dds",
+               "hue":20,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":35,
+               "image":TEXTURES_LOCATION + "PowerArmor/LeftArm/Yellow.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":100,
+               "image":TEXTURES_LOCATION + "PowerArmor/LeftArm/White.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":160,
+               "image":TEXTURES_LOCATION + "PowerArmor/LeftArm/Green.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":300,
+               "image":TEXTURES_LOCATION + "PowerArmor/LeftArm/Teal.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            }],
+            "offsetText":{
+               "x":110,
+               "y":40
+            },
+            "offsetImage":{
+               "x":0,
+               "y":0
+            },
+            "scaleImage":{
+               "x":0.6,
+               "y":0.6
+            },
+            "showPercentage":true
+         },
+         "RightLeg":{
+            "text":["right leg"," rl "],
+            "image":TEXTURES_LOCATION + "PowerArmor/RightLeg/White.dds",
+            "gradients":[{
+               "belowPercent":5,
+               "image":TEXTURES_LOCATION + "PowerArmor/RightLeg/Red.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":20,
+               "image":TEXTURES_LOCATION + "PowerArmor/RightLeg/Red.dds",
+               "hue":20,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":35,
+               "image":TEXTURES_LOCATION + "PowerArmor/RightLeg/Yellow.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":100,
+               "image":TEXTURES_LOCATION + "PowerArmor/RightLeg/White.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":160,
+               "image":TEXTURES_LOCATION + "PowerArmor/RightLeg/Green.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":300,
+               "image":TEXTURES_LOCATION + "PowerArmor/RightLeg/Teal.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            }],
+            "offsetText":{
+               "x":10,
+               "y":95
+            },
+            "offsetImage":{
+               "x":0,
+               "y":0
+            },
+            "scaleImage":{
+               "x":0.6,
+               "y":0.6
+            },
+            "showPercentage":true
+         },
+         "LeftLeg":{
+            "text":["left leg"," ll "],
+            "image":TEXTURES_LOCATION + "PowerArmor/LeftLeg/White.dds",
+            "gradients":[{
+               "belowPercent":5,
+               "image":TEXTURES_LOCATION + "PowerArmor/LeftLeg/Red.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":20,
+               "image":TEXTURES_LOCATION + "PowerArmor/LeftLeg/Red.dds",
+               "hue":20,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":35,
+               "image":TEXTURES_LOCATION + "PowerArmor/LeftLeg/Yellow.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":100,
+               "image":TEXTURES_LOCATION + "PowerArmor/LeftLeg/White.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":160,
+               "image":TEXTURES_LOCATION + "PowerArmor/LeftLeg/Green.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":300,
+               "image":TEXTURES_LOCATION + "PowerArmor/LeftLeg/Teal.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            }],
+            "offsetText":{
+               "x":95,
+               "y":95
+            },
+            "offsetImage":{
+               "x":0,
+               "y":0
+            },
+            "scaleImage":{
+               "x":0.6,
+               "y":0.6
+            },
+            "showPercentage":true
+         },
+         "Chest":{
+            "text":["chest","torso"," ch "],
+            "image":TEXTURES_LOCATION + "PowerArmor/Torso/White.dds",
+            "gradients":[{
+               "belowPercent":5,
+               "image":TEXTURES_LOCATION + "PowerArmor/Torso/Red.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":20,
+               "image":TEXTURES_LOCATION + "PowerArmor/Torso/Red.dds",
+               "hue":20,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":35,
+               "image":TEXTURES_LOCATION + "PowerArmor/Torso/Yellow.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":100,
+               "image":TEXTURES_LOCATION + "PowerArmor/Torso/White.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":160,
+               "image":TEXTURES_LOCATION + "PowerArmor/Torso/Green.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            },{
+               "belowPercent":300,
+               "image":TEXTURES_LOCATION + "PowerArmor/Torso/Teal.dds",
+               "hue":0,
+               "saturation":0,
+               "brightness":0,
+               "contrast":0
+            }],
+            "offsetText":{
+               "x":60,
+               "y":135
+            },
+            "offsetImage":{
+               "x":0,
+               "y":0
+            },
+            "scaleImage":{
+               "x":0.6,
+               "y":0.6
+            },
+            "showPercentage":true
+         }
+      };
+      
       private static var _config:Object;
        
       
@@ -455,10 +817,21 @@ package
                   "color":"0xaaffff"
                }];
             }
+            errorCode = "Weapon";
+            if(config.Weapon != null)
+            {
+               config.Weapon.showCondition = Boolean(config.Weapon.showCondition);
+               config.Weapon.offsetText = parsePoint(config.Weapon.offsetText,0,155);
+               config.Weapon.textLength = Parser.parseNumber(config.Weapon.textLength,15);
+            }
+            else
+            {
+               config.Weapon = {"showCondition":false};
+            }
             errorCode = "BackgroundImage";
+            config.disableBackgroundImage = Boolean(config.disableBackgroundImage);
             if(config.BackgroundImage != null)
             {
-               config.BackgroundImage.disable = Boolean(config.BackgroundImage.disable);
                errorCode = "BackgroundImage.image";
                config.BackgroundImage.image = getImageDir(config.BackgroundImage.image,"Underarmor/VaultBoy/White.dds");
                errorCode = "BackgroundImage.offset";
@@ -491,21 +864,10 @@ package
                   }
                };
             }
-            errorCode = "Weapon";
-            if(config.Weapon != null)
-            {
-               config.Weapon.showCondition = Boolean(config.Weapon.showCondition);
-               config.Weapon.offsetText = parsePoint(config.Weapon.offsetText,0,155);
-               config.Weapon.textLength = Parser.parseNumber(config.Weapon.textLength,15);
-            }
-            else
-            {
-               config.Weapon = {"showCondition":false};
-            }
             errorCode = "Parts";
+            config.disableParts = Boolean(config.disableParts);
             if(config.Parts != null)
             {
-               config.Parts.disable = Boolean(config.Parts.disable);
                p = 0;
                while(p < PARTS.length)
                {
@@ -539,6 +901,80 @@ package
             else
             {
                config.Parts = clone(DEFAULT_PARTS);
+            }
+            errorCode = "useDynamicPowerArmorParts";
+            config.useDynamicPowerArmorParts = Boolean(config.useDynamicPowerArmorParts);
+            errorCode = "PowerArmor BackgroundImage";
+            if(config.PowerArmor_BackgroundImage != null)
+            {
+               errorCode = "PA BackgroundImage.image";
+               config.PowerArmor_BackgroundImage.image = getImageDir(config.PowerArmor_BackgroundImage.image,"PowerArmor/Outline/Black.dds");
+               errorCode = "PA BackgroundImage.offset";
+               config.PowerArmor_BackgroundImage.offset = parsePoint(config.PowerArmor_BackgroundImage.offset,0,0);
+               errorCode = "PA BackgroundImage.scale";
+               config.PowerArmor_BackgroundImage.scale = parsePoint(config.PowerArmor_BackgroundImage.scale,0.6,0.6);
+               errorCode = "PA BackgroundImage.adjustColor";
+               config.PowerArmor_BackgroundImage.adjustColor = Boolean(config.PowerArmor_BackgroundImage.adjustColor);
+               errorCode = "PA BackgroundImage.color";
+               config.PowerArmor_BackgroundImage.color = parseHSBColor(config.PowerArmor_BackgroundImage.color,0,0,0,0);
+            }
+            else
+            {
+               config.PowerArmor_BackgroundImage = {
+                  "image":TEXTURES_LOCATION + "PowerArmor/Outline/Black.dds",
+                  "offset":{
+                     "x":0,
+                     "y":0
+                  },
+                  "scale":{
+                     "x":0.6,
+                     "y":0.6
+                  },
+                  "adjustColor":false,
+                  "color":{
+                     "hue":0,
+                     "saturation":0,
+                     "brightness":0,
+                     "contrast":0
+                  }
+               };
+            }
+            errorCode = "PowerArmor Parts";
+            if(config.PowerArmor_Parts != null)
+            {
+               p = 0;
+               while(p < PARTS.length)
+               {
+                  if(config.PowerArmor_Parts[PARTS[p]] != null)
+                  {
+                     config.PowerArmor_Parts[PARTS[p]].text = parseArray(config.PowerArmor_Parts[PARTS[p]].text,DEFAULT_PA_PARTS[PARTS[p]].text);
+                     config.PowerArmor_Parts[PARTS[p]].image = getImageDir(config.PowerArmor_Parts[PARTS[p]].image,PARTS[p] + "/White.dds");
+                     config.PowerArmor_Parts[PARTS[p]].gradients = parseArray(config.PowerArmor_Parts[PARTS[p]].gradients,DEFAULT_PA_PARTS[PARTS[p]].gradients);
+                     config.PowerArmor_Parts[PARTS[p]].offsetText = parsePoint(config.PowerArmor_Parts[PARTS[p]].offsetText,DEFAULT_PA_PARTS[PARTS[p]].offsetText.x,DEFAULT_PA_PARTS[PARTS[p]].offsetText.y);
+                     config.PowerArmor_Parts[PARTS[p]].offsetImage = parsePoint(config.PowerArmor_Parts[PARTS[p]].offsetImage,DEFAULT_PA_PARTS[PARTS[p]].offsetImage.x,DEFAULT_PA_PARTS[PARTS[p]].offsetImage.y);
+                     config.PowerArmor_Parts[PARTS[p]].scaleImage = parsePoint(config.PowerArmor_Parts[PARTS[p]].scaleImage,1,1);
+                     config.PowerArmor_Parts[PARTS[p]].showPercentage = Boolean(config.PowerArmor_Parts[PARTS[p]].showPercentage);
+                     g = 0;
+                     while(g < config.PowerArmor_Parts[PARTS[p]].gradients.length)
+                     {
+                        img = getImageDir(config.PowerArmor_Parts[PARTS[p]].gradients[g].image,PARTS[p] + "/White.dds");
+                        belowPercent = Parser.parseNumber(config.PowerArmor_Parts[PARTS[p]].gradients[g].belowPercent,-1);
+                        config.PowerArmor_Parts[PARTS[p]].gradients[g] = parseHSBColor(config.PowerArmor_Parts[PARTS[p]].gradients[g],0,0,0,0);
+                        config.PowerArmor_Parts[PARTS[p]].gradients[g].belowPercent = belowPercent;
+                        config.PowerArmor_Parts[PARTS[p]].gradients[g].image = img;
+                        g++;
+                     }
+                  }
+                  else
+                  {
+                     config.PowerArmor_Parts[PARTS[p]] = clone(DEFAULT_PA_PARTS[PARTS[p]]);
+                  }
+                  p++;
+               }
+            }
+            else
+            {
+               config.PowerArmor_Parts = clone(DEFAULT_PA_PARTS);
             }
             errorCode = "HUDModesState";
             config.HUDModesState = getState(config.HUDModesState);
