@@ -24,42 +24,48 @@ package
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":20,
                "image":TEXTURES_LOCATION + "Hat/Red.dds",
                "hue":20,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":35,
                "image":TEXTURES_LOCATION + "Hat/Yellow.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":100,
                "image":TEXTURES_LOCATION + "Hat/White.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":160,
                "image":TEXTURES_LOCATION + "Hat/Green.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":300,
                "image":TEXTURES_LOCATION + "Hat/Teal.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             }],
             "offsetText":{
                "x":64,
@@ -84,42 +90,48 @@ package
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":20,
                "image":TEXTURES_LOCATION + "RightArm/Red.dds",
                "hue":20,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":35,
                "image":TEXTURES_LOCATION + "RightArm/Yellow.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":100,
                "image":TEXTURES_LOCATION + "RightArm/White.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":160,
                "image":TEXTURES_LOCATION + "RightArm/Green.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":300,
                "image":TEXTURES_LOCATION + "RightArm/Teal.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             }],
             "offsetText":{
                "x":15,
@@ -144,42 +156,48 @@ package
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":20,
                "image":TEXTURES_LOCATION + "LeftArm/Red.dds",
                "hue":20,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":35,
                "image":TEXTURES_LOCATION + "LeftArm/Yellow.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":100,
                "image":TEXTURES_LOCATION + "LeftArm/White.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":160,
                "image":TEXTURES_LOCATION + "LeftArm/Green.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":300,
                "image":TEXTURES_LOCATION + "LeftArm/Teal.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             }],
             "offsetText":{
                "x":105,
@@ -204,42 +222,48 @@ package
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":20,
                "image":TEXTURES_LOCATION + "RightLeg/Red.dds",
                "hue":20,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":35,
                "image":TEXTURES_LOCATION + "RightLeg/Yellow.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":100,
                "image":TEXTURES_LOCATION + "RightLeg/White.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":160,
                "image":TEXTURES_LOCATION + "RightLeg/Green.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":300,
                "image":TEXTURES_LOCATION + "RightLeg/Teal.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             }],
             "offsetText":{
                "x":20,
@@ -264,42 +288,48 @@ package
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":20,
                "image":TEXTURES_LOCATION + "LeftLeg/Red.dds",
                "hue":20,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":35,
                "image":TEXTURES_LOCATION + "LeftLeg/Yellow.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":100,
                "image":TEXTURES_LOCATION + "LeftLeg/White.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":160,
                "image":TEXTURES_LOCATION + "LeftLeg/Green.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":300,
                "image":TEXTURES_LOCATION + "LeftLeg/Teal.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             }],
             "offsetText":{
                "x":110,
@@ -324,42 +354,48 @@ package
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":20,
                "image":TEXTURES_LOCATION + "Chest/Red.dds",
                "hue":20,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":35,
                "image":TEXTURES_LOCATION + "Chest/Yellow.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":100,
                "image":TEXTURES_LOCATION + "Chest/White.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":160,
                "image":TEXTURES_LOCATION + "Chest/Green.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":300,
                "image":TEXTURES_LOCATION + "Chest/Teal.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             }],
             "offsetText":{
                "x":60,
@@ -387,42 +423,48 @@ package
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":20,
                "image":TEXTURES_LOCATION + "PowerArmor/Helmet/Red.dds",
                "hue":20,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":35,
                "image":TEXTURES_LOCATION + "PowerArmor/Helmet/Yellow.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":100,
                "image":TEXTURES_LOCATION + "PowerArmor/Helmet/White.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":160,
                "image":TEXTURES_LOCATION + "PowerArmor/Helmet/Green.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":300,
                "image":TEXTURES_LOCATION + "PowerArmor/Helmet/Teal.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             }],
             "offsetText":{
                "x":60,
@@ -447,42 +489,48 @@ package
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":20,
                "image":TEXTURES_LOCATION + "PowerArmor/RightArm/Red.dds",
                "hue":20,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":35,
                "image":TEXTURES_LOCATION + "PowerArmor/RightArm/Yellow.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":100,
                "image":TEXTURES_LOCATION + "PowerArmor/RightArm/White.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":160,
                "image":TEXTURES_LOCATION + "PowerArmor/RightArm/Green.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":300,
                "image":TEXTURES_LOCATION + "PowerArmor/RightArm/Teal.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             }],
             "offsetText":{
                "x":0,
@@ -507,42 +555,48 @@ package
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":20,
                "image":TEXTURES_LOCATION + "PowerArmor/LeftArm/Red.dds",
                "hue":20,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":35,
                "image":TEXTURES_LOCATION + "PowerArmor/LeftArm/Yellow.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":100,
                "image":TEXTURES_LOCATION + "PowerArmor/LeftArm/White.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":160,
                "image":TEXTURES_LOCATION + "PowerArmor/LeftArm/Green.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":300,
                "image":TEXTURES_LOCATION + "PowerArmor/LeftArm/Teal.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             }],
             "offsetText":{
                "x":110,
@@ -567,42 +621,48 @@ package
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":20,
                "image":TEXTURES_LOCATION + "PowerArmor/RightLeg/Red.dds",
                "hue":20,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":35,
                "image":TEXTURES_LOCATION + "PowerArmor/RightLeg/Yellow.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":100,
                "image":TEXTURES_LOCATION + "PowerArmor/RightLeg/White.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":160,
                "image":TEXTURES_LOCATION + "PowerArmor/RightLeg/Green.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":300,
                "image":TEXTURES_LOCATION + "PowerArmor/RightLeg/Teal.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             }],
             "offsetText":{
                "x":10,
@@ -627,42 +687,48 @@ package
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":20,
                "image":TEXTURES_LOCATION + "PowerArmor/LeftLeg/Red.dds",
                "hue":20,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":35,
                "image":TEXTURES_LOCATION + "PowerArmor/LeftLeg/Yellow.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":100,
                "image":TEXTURES_LOCATION + "PowerArmor/LeftLeg/White.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":160,
                "image":TEXTURES_LOCATION + "PowerArmor/LeftLeg/Green.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":300,
                "image":TEXTURES_LOCATION + "PowerArmor/LeftLeg/Teal.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             }],
             "offsetText":{
                "x":95,
@@ -687,42 +753,48 @@ package
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":20,
                "image":TEXTURES_LOCATION + "PowerArmor/Torso/Red.dds",
                "hue":20,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":35,
                "image":TEXTURES_LOCATION + "PowerArmor/Torso/Yellow.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":100,
                "image":TEXTURES_LOCATION + "PowerArmor/Torso/White.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":160,
                "image":TEXTURES_LOCATION + "PowerArmor/Torso/Green.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             },{
                "belowPercent":300,
                "image":TEXTURES_LOCATION + "PowerArmor/Torso/Teal.dds",
                "hue":0,
                "saturation":0,
                "brightness":0,
-               "contrast":0
+               "contrast":0,
+               "alpha":1
             }],
             "offsetText":{
                "x":60,
@@ -761,6 +833,7 @@ package
          var g:int;
          var img:String;
          var belowPercent:Number;
+         var alpha:Number;
          var errorCode:String = "";
          try
          {
@@ -842,6 +915,8 @@ package
                config.BackgroundImage.adjustColor = Boolean(config.BackgroundImage.adjustColor);
                errorCode = "BackgroundImage.color";
                config.BackgroundImage.color = parseHSBColor(config.BackgroundImage.color,0,0,0,0);
+               errorCode = "BackgroundImage.alpha";
+               config.BackgroundImage.alpha = Parser.parsePositiveNumber(config.BackgroundImage.alpha,1);
             }
             else
             {
@@ -861,7 +936,8 @@ package
                      "saturation":0,
                      "brightness":0,
                      "contrast":0
-                  }
+                  },
+                  "alpha":1
                };
             }
             errorCode = "Parts";
@@ -885,9 +961,11 @@ package
                      {
                         img = getImageDir(config.Parts[PARTS[p]].gradients[g].image,PARTS[p] + "/White.dds");
                         belowPercent = Parser.parseNumber(config.Parts[PARTS[p]].gradients[g].belowPercent,-1);
+                        alpha = Parser.parsePositiveNumber(config.Parts[PARTS[p]].gradients[g].alpha,1);
                         config.Parts[PARTS[p]].gradients[g] = parseHSBColor(config.Parts[PARTS[p]].gradients[g],0,0,0,0);
                         config.Parts[PARTS[p]].gradients[g].belowPercent = belowPercent;
                         config.Parts[PARTS[p]].gradients[g].image = img;
+                        config.Parts[PARTS[p]].gradients[g].alpha = alpha;
                         g++;
                      }
                   }
@@ -917,6 +995,8 @@ package
                config.PowerArmor_BackgroundImage.adjustColor = Boolean(config.PowerArmor_BackgroundImage.adjustColor);
                errorCode = "PA BackgroundImage.color";
                config.PowerArmor_BackgroundImage.color = parseHSBColor(config.PowerArmor_BackgroundImage.color,0,0,0,0);
+               errorCode = "PA BackgroundImage.alpha";
+               config.PowerArmor_BackgroundImage.alpha = Parser.parsePositiveNumber(config.PowerArmor_BackgroundImage.alpha,1);
             }
             else
             {
@@ -936,7 +1016,8 @@ package
                      "saturation":0,
                      "brightness":0,
                      "contrast":0
-                  }
+                  },
+                  "alpha":1
                };
             }
             errorCode = "PowerArmor Parts";
@@ -959,9 +1040,11 @@ package
                      {
                         img = getImageDir(config.PowerArmor_Parts[PARTS[p]].gradients[g].image,PARTS[p] + "/White.dds");
                         belowPercent = Parser.parseNumber(config.PowerArmor_Parts[PARTS[p]].gradients[g].belowPercent,-1);
+                        alpha = Parser.parsePositiveNumber(config.PowerArmor_Parts[PARTS[p]].gradients[g].alpha,1);
                         config.PowerArmor_Parts[PARTS[p]].gradients[g] = parseHSBColor(config.PowerArmor_Parts[PARTS[p]].gradients[g],0,0,0,0);
                         config.PowerArmor_Parts[PARTS[p]].gradients[g].belowPercent = belowPercent;
                         config.PowerArmor_Parts[PARTS[p]].gradients[g].image = img;
+                        config.PowerArmor_Parts[PARTS[p]].gradients[g].alpha = alpha;
                         g++;
                      }
                   }
