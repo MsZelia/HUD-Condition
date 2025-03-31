@@ -408,6 +408,7 @@ package
             TEXTURES[i].scaleX = lparts[PARTS[i]].scaleImage.x;
             TEXTURES[i].scaleY = lparts[PARTS[i]].scaleImage.y;
             TEXTURES[i].LoadExternal(lparts[PARTS[i]].image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
+            TEXTURES[i].alpha = lparts[PARTS[i]].alpha;
             i++;
          }
          if(config.Weapon.showCondition)
@@ -451,6 +452,7 @@ package
                this.TextureLoader.filters = [];
             }
             TextureLoader.LoadExternal(lbgImage.image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
+            TextureLoader.alpha = lbgImage.alpha;
          }
          if(!config.disableParts)
          {
@@ -461,6 +463,7 @@ package
                if(lparts[PARTS[i]].image != null && lparts[PARTS[i]].image.length > 4)
                {
                   TEXTURES[i].LoadExternal(lparts[PARTS[i]].image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
+                  TEXTURES[i].alpha = lparts[PARTS[i]].alpha;
                }
                i++;
             }
@@ -645,6 +648,7 @@ package
                   MATRIX[partId].contrast = gradient.contrast;
                   applyColorMatrixFilter(TEXTURES[partId],MATRIX[partId]);
                }
+               TEXTURES[partId].alpha = gradient.alpha;
                isImageLoaded = true;
                break;
             }
@@ -653,6 +657,7 @@ package
          if(!isImageLoaded && TEXTURES[partId].imagePath != lparts[partName].image)
          {
             TEXTURES[partId].LoadExternal(lparts[partName].image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
+            TEXTURES[partId].alpha = lparts[partName].alpha;
          }
       }
       
