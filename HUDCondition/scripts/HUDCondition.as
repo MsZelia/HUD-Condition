@@ -407,7 +407,7 @@ package
             TEXTURES[i].y = lparts[PARTS[i]].offsetImage.y;
             TEXTURES[i].scaleX = lparts[PARTS[i]].scaleImage.x;
             TEXTURES[i].scaleY = lparts[PARTS[i]].scaleImage.y;
-            TEXTURES[i].LoadExternal(lparts[PARTS[i]].image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
+            TEXTURES[i].LoadExternal(lparts[PARTS[i]].image,GlobalFunc.STORE_IMAGE_TEXTURE_BUFFER);
             TEXTURES[i].alpha = lparts[PARTS[i]].alpha;
             i++;
          }
@@ -451,7 +451,7 @@ package
             {
                this.TextureLoader.filters = [];
             }
-            TextureLoader.LoadExternal(lbgImage.image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
+            TextureLoader.LoadExternal(lbgImage.image,GlobalFunc.STORE_IMAGE_TEXTURE_BUFFER);
             TextureLoader.alpha = lbgImage.alpha;
          }
          if(!config.disableParts)
@@ -462,7 +462,7 @@ package
             {
                if(lparts[PARTS[i]].image != null && lparts[PARTS[i]].image.length > 4)
                {
-                  TEXTURES[i].LoadExternal(lparts[PARTS[i]].image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
+                  TEXTURES[i].LoadExternal(lparts[PARTS[i]].image,GlobalFunc.STORE_IMAGE_TEXTURE_BUFFER);
                   TEXTURES[i].alpha = lparts[PARTS[i]].alpha;
                }
                i++;
@@ -638,7 +638,7 @@ package
             {
                if(TEXTURES[partId].imagePath != gradient.image)
                {
-                  TEXTURES[partId].LoadExternal(gradient.image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
+                  TEXTURES[partId].LoadExternal(gradient.image,GlobalFunc.STORE_IMAGE_TEXTURE_BUFFER);
                }
                if(MATRIX[partId].hue != gradient.hue || MATRIX[partId].saturation != gradient.saturation || MATRIX[partId].brightness != gradient.brightness || MATRIX[partId].contrast != gradient.contrast)
                {
@@ -656,7 +656,7 @@ package
          }
          if(!isImageLoaded && TEXTURES[partId].imagePath != lparts[partName].image)
          {
-            TEXTURES[partId].LoadExternal(lparts[partName].image,GlobalFunc.PLAYER_ICON_TEXTURE_BUFFER);
+            TEXTURES[partId].LoadExternal(lparts[partName].image,GlobalFunc.STORE_IMAGE_TEXTURE_BUFFER);
             TEXTURES[partId].alpha = lparts[partName].alpha;
          }
       }
