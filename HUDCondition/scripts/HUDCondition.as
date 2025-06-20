@@ -23,7 +23,7 @@ package
       
       public static const MOD_NAME:String = "HUDCondition";
       
-      public static const MOD_VERSION:String = "1.0.5";
+      public static const MOD_VERSION:String = "1.0.6";
       
       public static const FULL_MOD_NAME:String = MOD_NAME + " " + MOD_VERSION;
       
@@ -232,27 +232,39 @@ package
       
       public function updateConditions(event:*) : void
       {
-         var data:* = event.data;
-         if(data != null && data.InventoryList != null)
+         var data:*;
+         var t1:Number;
+         var len:int;
+         var _conditions:Array;
+         var i:int;
+         try
          {
-            var t1:Number = Number(getTimer());
-            var len:int = int(data.InventoryList.length);
-            var _conditions:Array = [];
-            var i:int = 0;
-            while(i < len)
+            data = event.data;
+            if(data != null && data.InventoryList != null)
             {
-               if(data.InventoryList[i].equipState == 1 && data.InventoryList[i].durability > 0)
+               t1 = Number(getTimer());
+               len = int(data.InventoryList.length);
+               _conditions = [];
+               i = 0;
+               while(i < len)
                {
-                  _conditions.push({
-                     "text":data.InventoryList[i].text,
-                     "filterFlag":data.InventoryList[i].filterFlag,
-                     "percentHealth":100 * data.InventoryList[i].currentHealth / data.InventoryList[i].maximumHealth
-                  });
+                  if(data.InventoryList[i].equipState == 1 && data.InventoryList[i].durability > 0)
+                  {
+                     _conditions.push({
+                        "text":data.InventoryList[i].text,
+                        "filterFlag":data.InventoryList[i].filterFlag,
+                        "percentHealth":100 * data.InventoryList[i].currentHealth / data.InventoryList[i].maximumHealth
+                     });
+                  }
+                  i++;
                }
-               i++;
+               this.conditions = _conditions;
+               this.lastConditionsTime = getTimer() - t1;
             }
-            this.conditions = _conditions;
-            this.lastConditionsTime = getTimer() - t1;
+         }
+         catch(e:Error)
+         {
+            ShowHUDMessage("Error updating conditions: " + e);
          }
       }
       
@@ -750,7 +762,7 @@ package
             }
             if(config.debug)
             {
-               displayMessage(FULL_MOD_NAME);
+               displayMessage(FULL_MOD_NAME + " : " + getQualifiedClassName(this.topLevel));
                displayMessage("HUDMode: " + this.HUDModeData.data.hudMode);
                displayMessage("inPA: " + this.inPowerArmor);
                displayMessage("RenderTime: " + this.lastRenderTime + "/" + this.lastConditionsTime + " ms");
