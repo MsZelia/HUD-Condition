@@ -234,7 +234,7 @@ package
          {
             if(parentItem == MOD_NAME)
             {
-               this.hudTools.AddMenuItem(HUDTOOLS_MENU_HIDE,"Force Hide",true,false,500);
+               this.hudTools.AddMenuItem(HUDTOOLS_MENU_HIDE,"Force Hide",true,false,250);
             }
          }
          catch(e:Error)
