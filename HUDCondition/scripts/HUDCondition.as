@@ -117,11 +117,11 @@ package
          this.conditions = [];
          this.conditions_tf = [];
          super();
-         addEventListener(Event.ADDED_TO_STAGE,this.addedToStageHandler);
+         addEventListener(Event.ADDED_TO_STAGE,this.addedToStageHandler,false,0,true);
          this.HUDModeData = BSUIDataManager.GetDataFromClient("HUDModeData");
          this.CharacterInfoData = BSUIDataManager.GetDataFromClient("CharacterInfoData");
          this.configTimer = new Timer(CONFIG_RELOAD_TIME);
-         this.configTimer.addEventListener(TimerEvent.TIMER,this.loadConfig);
+         this.configTimer.addEventListener(TimerEvent.TIMER,this.loadConfig,false,0,true);
          this.configTimer.start();
          this.init();
       }
@@ -210,6 +210,8 @@ package
       
       public function addedToStageHandler(param1:Event) : *
       {
+         removeEventListener(Event.ADDED_TO_STAGE,this.addedToStageHandler);
+         addEventListener(Event.REMOVED_FROM_STAGE,this.removedFromStageHandler,false,0,true);
          this.topLevel = stage.getChildAt(0);
          if(Boolean(this.topLevel))
          {
@@ -225,6 +227,27 @@ package
          {
             trace(MOD_NAME + " not added to stage: " + getQualifiedClassName(this.topLevel));
             ShowHUDMessage("Not added to stage: " + getQualifiedClassName(this.topLevel));
+         }
+      }
+      
+      public function removedFromStageHandler(param1:Event) : *
+      {
+         removeEventListener(Event.REMOVED_FROM_STAGE,this.removedFromStageHandler);
+         if(stage)
+         {
+            stage.removeEventListener(KeyboardEvent.KEY_DOWN,this.keyDownHandler);
+         }
+         if(this.configTimer)
+         {
+            this.configTimer.removeEventListener(TimerEvent.TIMER,this.loadConfig);
+         }
+         if(this.displayTimer)
+         {
+            this.displayTimer.removeEventListener(TimerEvent.TIMER,this.displayConditionLoop);
+         }
+         if(this.hudtools)
+         {
+            this.hudtools.Shutdown();
          }
       }
       
@@ -301,6 +324,7 @@ package
       public function loadConfig() : void
       {
          var loaderComplete:Function;
+         var ioErrorHandler:Function;
          var url:URLRequest = null;
          var loader:URLLoader = null;
          try
@@ -347,10 +371,15 @@ package
                   ShowHUDMessage("Error parsing config (" + errorCode + "): " + e);
                }
             };
+            ioErrorHandler = function(param1:*):void
+            {
+               ShowHUDMessage("Error loading config: " + param1.text);
+            };
             url = new URLRequest(CONFIG_FILE);
             loader = new URLLoader();
             loader.load(url);
-            loader.addEventListener(Event.COMPLETE,loaderComplete);
+            loader.addEventListener(Event.COMPLETE,loaderComplete,false,0,true);
+            loader.addEventListener(IOErrorEvent.IO_ERROR,ioErrorHandler,false,0,true);
          }
          catch(e:Error)
          {
@@ -519,7 +548,7 @@ package
             this.displayTimer.removeEventListener(TimerEvent.TIMER,this.displayConditionLoop);
          }
          this.displayTimer = new Timer(config.refresh);
-         this.displayTimer.addEventListener(TimerEvent.TIMER,this.displayConditionLoop);
+         this.displayTimer.addEventListener(TimerEvent.TIMER,this.displayConditionLoop,false,0,true);
          this.displayTimer.start();
       }
       
