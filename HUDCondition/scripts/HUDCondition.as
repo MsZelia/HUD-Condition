@@ -32,6 +32,8 @@ package
       public static const CONFIG_RELOAD_TIME:uint = 975;
       
       private static const TITLE_HUDMENU:String = "HUDMenu";
+      
+      private static const HUDTOOLS_MENU_HIDE:String = MOD_NAME + "_HIDE";
        
       
       private const PARTS:Array = ["LeftArm","RightArm","LeftLeg","RightLeg","Chest","Hat"];
@@ -105,6 +107,10 @@ package
       public var HA_tf:TextField;
       
       public var WEAPON_tf:TextField;
+      
+      private var forceHide:Boolean = false;
+      
+      private var hudTools:SharedHUDTools;
       
       public function HUDCondition()
       {
@@ -210,6 +216,8 @@ package
             if(getQualifiedClassName(this.topLevel) == TITLE_HUDMENU)
             {
                BSUIDataManager.Subscribe("PlayerInventoryData",this.updateConditions);
+               this.hudTools = new SharedHUDTools(MOD_NAME);
+               this.hudTools.RegisterMenu(this.onBuildMenu,this.onSelectMenu);
             }
             trace(MOD_NAME + " added to stage: " + getQualifiedClassName(this.topLevel));
          }
@@ -217,6 +225,28 @@ package
          {
             trace(MOD_NAME + " not added to stage: " + getQualifiedClassName(this.topLevel));
             ShowHUDMessage("Not added to stage: " + getQualifiedClassName(this.topLevel));
+         }
+      }
+      
+      public function onBuildMenu(parentItem:String = null) : *
+      {
+         try
+         {
+            if(parentItem == MOD_NAME)
+            {
+               this.hudTools.AddMenuItem(HUDTOOLS_MENU_HIDE,"Force Hide",true,false,500);
+            }
+         }
+         catch(e:Error)
+         {
+         }
+      }
+      
+      public function onSelectMenu(selectItem:String) : *
+      {
+         if(selectItem == HUDTOOLS_MENU_HIDE)
+         {
+            this.forceHide = !this.forceHide;
          }
       }
       
@@ -686,7 +716,7 @@ package
          try
          {
             t1 = Number(getTimer());
-            this.visible = this.isValidHUDMode();
+            this.visible = !this.forceHide && this.isValidHUDMode();
             if(!this.visible)
             {
                return;
