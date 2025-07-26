@@ -45,7 +45,6 @@ package
       public static const FT_SYMBOL:int = 2;
       
       public static const FT_ASSOC_MEDIA:int = 3;
-       
       
       private var m_FixtureState:int = 0;
       
@@ -53,7 +52,7 @@ package
       
       private var m_BitmapInstance:Bitmap = null;
       
-      private var m_ImgLoader:Loader;
+      private var m_ImgLoader:Loader = new Loader();
       
       private var m_Image:String = "";
       
@@ -71,7 +70,6 @@ package
       
       public function ImageFixture()
       {
-         this.m_ImgLoader = new Loader();
          super();
          if(this.LoadingSpinner_mc != null)
          {
@@ -392,3 +390,4 @@ package
       }
    }
 }
+

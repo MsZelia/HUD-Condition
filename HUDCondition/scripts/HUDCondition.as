@@ -23,7 +23,7 @@ package
       
       public static const MOD_NAME:String = "HUDCondition";
       
-      public static const MOD_VERSION:String = "1.0.6";
+      public static const MOD_VERSION:String = "1.0.7";
       
       public static const FULL_MOD_NAME:String = MOD_NAME + " " + MOD_VERSION;
       
@@ -34,7 +34,6 @@ package
       private static const TITLE_HUDMENU:String = "HUDMenu";
       
       private static const HUDTOOLS_MENU_HIDE:String = MOD_NAME + "_HIDE";
-       
       
       private const PARTS:Array = ["LeftArm","RightArm","LeftLeg","RightLeg","Chest","Hat"];
       
@@ -68,13 +67,13 @@ package
       
       public var inPowerArmor:Boolean = false;
       
-      private var conditions_tf:Array;
+      private var conditions_tf:Array = [];
       
       private var conditions_index:int = 0;
       
       private var lastConditionsTime:Number = 0;
       
-      public var conditions:Array;
+      public var conditions:Array = [];
       
       public var Base_mc:MovieClip;
       
@@ -114,15 +113,10 @@ package
       
       public function HUDCondition()
       {
-         this.conditions = [];
-         this.conditions_tf = [];
          super();
          addEventListener(Event.ADDED_TO_STAGE,this.addedToStageHandler,false,0,true);
          this.HUDModeData = BSUIDataManager.GetDataFromClient("HUDModeData");
          this.CharacterInfoData = BSUIDataManager.GetDataFromClient("CharacterInfoData");
-         this.configTimer = new Timer(CONFIG_RELOAD_TIME);
-         this.configTimer.addEventListener(TimerEvent.TIMER,this.loadConfig,false,0,true);
-         this.configTimer.start();
          this.init();
       }
       
@@ -208,6 +202,13 @@ package
          };
       }
       
+      public function initConfigTimer() : void
+      {
+         this.configTimer = new Timer(CONFIG_RELOAD_TIME);
+         this.configTimer.addEventListener(TimerEvent.TIMER,this.loadConfig,false,0,true);
+         this.configTimer.start();
+      }
+      
       public function addedToStageHandler(param1:Event) : *
       {
          removeEventListener(Event.ADDED_TO_STAGE,this.addedToStageHandler);
@@ -220,6 +221,8 @@ package
                BSUIDataManager.Subscribe("PlayerInventoryData",this.updateConditions);
                this.hudTools = new SharedHUDTools(MOD_NAME);
                this.hudTools.RegisterMenu(this.onBuildMenu,this.onSelectMenu);
+               this.initConfigTimer();
+               this.loadConfig();
             }
             trace(MOD_NAME + " added to stage: " + getQualifiedClassName(this.topLevel));
          }
@@ -232,6 +235,7 @@ package
       
       public function removedFromStageHandler(param1:Event) : *
       {
+         BSUIDataManager.Unsubscribe("PlayerInventoryData",this.updateConditions);
          removeEventListener(Event.REMOVED_FROM_STAGE,this.removedFromStageHandler);
          if(stage)
          {
@@ -317,7 +321,6 @@ package
          }
          catch(e:Error)
          {
-            ShowHUDMessage("Error updating conditions: " + e);
          }
       }
       
@@ -329,7 +332,7 @@ package
          var loader:URLLoader = null;
          try
          {
-            configReloadIndex++;
+            ++configReloadIndex;
             if(config != null)
             {
                if(config.disableRealTimeEdit)
@@ -554,7 +557,7 @@ package
       
       public function get isReloadable() : Boolean
       {
-         return false;
+         return true;
       }
       
       public function get config() : Object
@@ -646,7 +649,7 @@ package
          }
          applyConfig(conditions_tf[conditions_index]);
          conditions_tf[conditions_index].text = text;
-         conditions_index++;
+         ++conditions_index;
       }
       
       public function get LastDisplayTextfield() : TextField
@@ -873,3 +876,4 @@ package
       }
    }
 }
+

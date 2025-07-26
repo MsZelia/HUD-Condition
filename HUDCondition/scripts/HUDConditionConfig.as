@@ -6,6 +6,8 @@ package
    public class HUDConditionConfig
    {
       
+      private static var _config:Object;
+      
       public static const STATE_HIDDEN:String = "hidden";
       
       public static const STATE_SHOWN:String = "shown";
@@ -812,9 +814,6 @@ package
          }
       };
       
-      private static var _config:Object;
-       
-      
       public function HUDConditionConfig()
       {
          super();
@@ -1156,3 +1155,4 @@ package
       }
    }
 }
+

@@ -150,7 +150,6 @@ package Shared
          "8":9,
          "9":10
       };
-       
       
       public function GlobalFunc()
       {
@@ -222,8 +221,8 @@ package Shared
          {
             return _loc5_ + " Minute";
          }
-         var _loc6_:Number;
-         if((_loc6_ = Math.floor(_loc2_)) > 1)
+         var _loc6_:Number = Math.floor(_loc2_);
+         if(_loc6_ > 1)
          {
             return _loc6_ + " Seconds";
          }
@@ -349,7 +348,8 @@ package Shared
                _loc4_ = Number(_loc6_.letterSpacing);
                _loc5_ = Boolean(_loc6_.kerning);
                this.htmlText = param1;
-               (_loc6_ = this.getTextFormat()).letterSpacing = _loc4_;
+               _loc6_ = this.getTextFormat();
+               _loc6_.letterSpacing = _loc4_;
                _loc6_.kerning = _loc5_;
                this.setTextFormat(_loc6_);
                this.htmlText = param1;
@@ -382,7 +382,8 @@ package Shared
             _loc7_ = Number(_loc6_.letterSpacing);
             _loc8_ = Boolean(_loc6_.kerning);
             param1.htmlText = param2;
-            (_loc6_ = param1.getTextFormat()).letterSpacing = _loc7_;
+            _loc6_ = param1.getTextFormat();
+            _loc6_.letterSpacing = _loc7_;
             _loc6_.kerning = _loc8_;
             param1.setTextFormat(_loc6_);
          }
@@ -736,3 +737,4 @@ package Shared
       }
    }
 }
+
