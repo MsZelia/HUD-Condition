@@ -1,0 +1,195 @@
+{
+	// WIDGET SETTINGS
+	"x": 1200,
+	"y": 910,
+	"textSize": 18,
+	/* Some of the working fonts:
+	"$76HandwrittenNeat_Font", "$76HandwrittenIlliterate", "$BerlinDemi", "$BRODY",
+	"$Brush_Script_Std", "$ChowderHead", "$ConsoleFont", "$DebugTextFont", "$DotMatrix_Font",
+	"$evaScript_Font", "$Futura_Bold", "$HandwrittenFont", "$KiddieCocktails", "$Leiascript_Font",
+	"$MAIN_Font", "$MAIN_Font_Bold", "$MAIN_Font_Light", "$NixieTube_Font", "$Portico_Font_Regular",
+	"$Slate_Mobile", "$Terminal_Font", "$Typewriter_Font" */
+	"textFont": "$MAIN_Font",
+	"textAlign": "left", /* left, center, right */
+	"textColor": "0xffffff",
+	"textShadow": true,
+	"alpha": 1.0,
+	"blendMode": "normal",
+	"textBlendMode": "normal",
+	
+	"disableRealTimeEdit": false,
+	"instantConfigReload": false, // 1 second refresh
+	
+	
+	// CONDITIONS DISPLAY SETTINGS
+	"refresh": 100,
+	
+	"textsScale": {"x": 1.0, "y": 1.0},
+	"imagesScale": {"x": 1.0, "y": 1.0},
+	
+	"percentDecimals": 0,
+	
+	"useTextColorGradients": true,
+	"textColorGradients": [
+		{"belowPercent": 5, "color": "0xff0000"},
+		{"belowPercent": 20, "color": "0xe8460c"},
+		{"belowPercent": 35, "color": "0xffff55"},
+		{"belowPercent": 100, "color": "0xffffff"},
+		{"belowPercent": 160, "color": "0xaaffaa"},
+		{"belowPercent": 300, "color": "0xaaffff"}
+	],
+	
+	/* You can use any custom image that follows these specifications:
+		Image is square - e.g. 128x128, 256x256, 512x512
+		Saved in dds (DirectDraw Surface) format with BC1 sRGB compression - use Paint.Net
+		Located in Textures/HUDCondition folder - e.g. Textures/HUDCondition/Underarmor/MyCustomUnderarmor.dds
+		Packed in ba2 archive - you can use Archive2, Baka file tool or any other packing tool
+		Packed ba2 archive is added to your load order - Fallout76Custom.ini / Project76Custom.ini file
+	*/
+	
+	"Weapon": {
+		"showCondition": true,
+		"offsetText": {"x": 0, "y": -30},
+		"textLength": 15
+	},
+	
+	
+	"useDynamicPowerArmorParts": false, // Update 1.0.2
+	
+	"disableBackgroundImage": false, // Update 1.0.2
+	"BackgroundImage":
+	{
+		"image": "PowerArmor/Outline/Black.dds",
+		"offset": {"x": 0, "y": 0},
+		"scale": {"x": 0.6, "y": 0.6},
+		"adjustColor": false,
+		"color": {"hue": 0, "saturation": 0, "brightness": 0, "contrast": 0}
+	},
+	
+	"disableParts": false, // Update 1.0.2
+	"Parts": {
+		"Hat": {
+			"text": ["helmet", "hat"],
+			"image": "PowerArmor/Helmet/White.dds",
+			"gradients": [
+				{"belowPercent": 5, "image": "PowerArmor/Helmet/Red.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 20, "image": "PowerArmor/Helmet/Red.dds", "hue": 20, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 35, "image": "PowerArmor/Helmet/Yellow.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 100, "image": "PowerArmor/Helmet/White.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 160, "image": "PowerArmor/Helmet/Green.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 300, "image": "PowerArmor/Helmet/Teal.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0}
+			],
+			"offsetText": {"x": 60, "y": -15},
+			"offsetImage": {"x": 0, "y": 0},
+			"scaleImage": {"x": 0.6, "y": 0.6},
+			"showPercentage": true
+		},
+		"RightArm": {
+			"text": ["right arm", " ra "],
+			"image": "PowerArmor/RightArm/White.dds",
+			"gradients": [
+				{"belowPercent": 5, "image": "PowerArmor/RightArm/Red.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 20, "image": "PowerArmor/RightArm/Red.dds", "hue": 20, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 35, "image": "PowerArmor/RightArm/Yellow.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 100, "image": "PowerArmor/RightArm/White.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 160, "image": "PowerArmor/RightArm/Green.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 300, "image": "PowerArmor/RightArm/Teal.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0}
+			],
+			"offsetText": {"x": 0, "y": 25},
+			"offsetImage": {"x": 0, "y": 0},
+			"scaleImage": {"x": 0.6, "y": 0.6},
+			"showPercentage": true
+		},
+		"LeftArm": {
+			"text": ["left arm", " la "],
+			"image": "PowerArmor/LeftArm/White.dds",
+			"gradients": [
+				{"belowPercent": 5, "image": "PowerArmor/LeftArm/Red.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 20, "image": "PowerArmor/LeftArm/Red.dds", "hue": 20, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 35, "image": "PowerArmor/LeftArm/Yellow.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 100, "image": "PowerArmor/LeftArm/White.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 160, "image": "PowerArmor/LeftArm/Green.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 300, "image": "PowerArmor/LeftArm/Teal.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0}
+			],
+			"offsetText": {"x": 110, "y": 40},
+			"offsetImage": {"x": 0, "y": 0},
+			"scaleImage": {"x": 0.6, "y": 0.6},
+			"showPercentage": true
+		},
+		"RightLeg": {
+			"text": ["right leg", " rl "],
+			"image": "PowerArmor/RightLeg/White.dds",
+			"gradients": [
+				{"belowPercent": 5, "image": "PowerArmor/RightLeg/Red.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 20, "image": "PowerArmor/RightLeg/Red.dds", "hue": 20, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 35, "image": "PowerArmor/RightLeg/Yellow.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 100, "image": "PowerArmor/RightLeg/White.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 160, "image": "PowerArmor/RightLeg/Green.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 300, "image": "PowerArmor/RightLeg/Teal.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0}
+			],
+			"offsetText": {"x": 10, "y": 95},
+			"offsetImage": {"x": 0, "y": 0},
+			"scaleImage": {"x": 0.6, "y": 0.6},
+			"showPercentage": true
+		},
+		"LeftLeg": {
+			"text": ["left leg", " ll "],
+			"image": "PowerArmor/LeftLeg/White.dds",
+			"gradients": [
+				{"belowPercent": 5, "image": "PowerArmor/LeftLeg/Red.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 20, "image": "PowerArmor/LeftLeg/Red.dds", "hue": 20, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 35, "image": "PowerArmor/LeftLeg/Yellow.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 100, "image": "PowerArmor/LeftLeg/White.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 160, "image": "PowerArmor/LeftLeg/Green.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 300, "image": "PowerArmor/LeftLeg/Teal.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0}
+			],
+			"offsetText": {"x": 95, "y": 95},
+			"offsetImage": {"x": 0, "y": 0},
+			"scaleImage": {"x": 0.6, "y": 0.6},
+			"showPercentage": true
+		},
+		"Chest": {
+			"text": ["chest", "torso", " ch "],
+			"image": "PowerArmor/Torso/White.dds",
+			"gradients": [
+				{"belowPercent": 5, "image": "PowerArmor/Torso/Red.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 20, "image": "PowerArmor/Torso/Red.dds", "hue": 20, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 35, "image": "PowerArmor/Torso/Yellow.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 100, "image": "PowerArmor/Torso/White.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 160, "image": "PowerArmor/Torso/Green.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0},
+				{"belowPercent": 300, "image": "PowerArmor/Torso/Teal.dds", "hue": 0, "saturation": 0, "brightness": 0, "contrast": 0}
+			],
+			"offsetText": {"x": 60, "y": 135},
+			"offsetImage": {"x": 0, "y": 0},
+			"scaleImage": {"x": 0.6, "y": 0.6},
+			"showPercentage": true
+		}
+	},
+	
+	/* HUD Modes:
+	"ActivateTypeMode", "All", "AutoVanity", "CampPlacement", "ContainerMode", "CrosshairAndActivateOnly",
+	"DeathRespawnMode", "DefaultScopeMenu", "DialogueMode", "EndOfMatch", "FurnitureEnterExit", "InsideMemory",
+	"InspectMode", "IronSights", "LegendaryPerksMode", "LockpickingMode", "MapMenu", "MessageMode",
+	"MovementDisabled", "NoHud", "PauseMode", "PerksMode", "Pipboy", "PowerArmor", "RadialMenu", "ScopeMenu",
+	"SelfieMode", "SitWaitMode", "SpectatorMode", "TerminalMode", "VATS", "VATSPlayback", "VertibirdMode",
+	"WorkshopMode", "Loading"
+	"Fishing"
+	
+	"All" is default HUD mode (non-power armor), not all of them */
+	"HUDModesState": "hidden", // Options: hidden, shown
+	"HUDModes": [
+		"ContainerMode",
+		"DialogueMode",
+		"ExamineConfirmMode",
+		"InspectMode",
+		"LegendaryPerksMode",
+		"MapMenu",
+		"MessageMode",
+		"PauseMode",
+		"PerksMode",
+		//"Pipboy",
+		"RadialMenu",
+		"SelfieMode",
+		"WorkshopMode"
+	]
+}
