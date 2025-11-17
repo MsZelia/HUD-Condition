@@ -839,7 +839,7 @@ package
             config = jsonObject;
             config.x = Parser.parseNumber(config.x,50);
             config.y = Parser.parseNumber(config.y,50);
-            config.width = 250;
+            config.width = Parser.parseNumber(config.y,250);
             config.textSize = Parser.parseNumber(config.textSize,18);
             config.textFont = Boolean(config.textFont) ? config.textFont : "$MAIN_Font";
             config.textAlign = Boolean(config.textAlign) ? config.textAlign.toLowerCase() : "left";
