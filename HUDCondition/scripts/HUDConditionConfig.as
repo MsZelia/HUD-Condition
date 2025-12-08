@@ -979,6 +979,85 @@ package
             {
                config.Parts = clone(DEFAULT_PARTS);
             }
+            errorCode = "useDynamicGhoulParts";
+            config.useDynamicGhoulParts = Boolean(config.useDynamicGhoulParts);
+            errorCode = "Ghoul_BackgroundImage";
+            if(config.Ghoul_BackgroundImage != null)
+            {
+               errorCode = "Ghoul_BackgroundImage.image";
+               config.Ghoul_BackgroundImage.image = getImageDir(config.Ghoul_BackgroundImage.image,"Underarmor/VaultGhoul/White.dds");
+               errorCode = "Ghoul_BackgroundImage.offset";
+               config.Ghoul_BackgroundImage.offset = parsePoint(config.Ghoul_BackgroundImage.offset,13,4);
+               errorCode = "Ghoul_BackgroundImage.scale";
+               config.Ghoul_BackgroundImage.scale = parsePoint(config.Ghoul_BackgroundImage.scale,0.56,0.56);
+               errorCode = "Ghoul_BackgroundImage.adjustColor";
+               config.Ghoul_BackgroundImage.adjustColor = Boolean(config.Ghoul_BackgroundImage.adjustColor);
+               errorCode = "Ghoul_BackgroundImage.color";
+               config.Ghoul_BackgroundImage.color = parseHSBColor(config.Ghoul_BackgroundImage.color,0,0,0,0);
+               errorCode = "Ghoul_BackgroundImage.alpha";
+               config.Ghoul_BackgroundImage.alpha = Parser.parsePositiveNumber(config.Ghoul_BackgroundImage.alpha,1);
+            }
+            else
+            {
+               config.Ghoul_BackgroundImage = {
+                  "image":TEXTURES_LOCATION + "Underarmor/VaultGhoul/White.dds",
+                  "offset":{
+                     "x":13,
+                     "y":4
+                  },
+                  "scale":{
+                     "x":0.56,
+                     "y":0.56
+                  },
+                  "adjustColor":false,
+                  "color":{
+                     "hue":0,
+                     "saturation":0,
+                     "brightness":0,
+                     "contrast":0
+                  },
+                  "alpha":1
+               };
+            }
+            errorCode = "Ghoul_Parts";
+            if(config.Ghoul_Parts != null)
+            {
+               p = 0;
+               while(p < PARTS.length)
+               {
+                  if(config.Ghoul_Parts[PARTS[p]] != null)
+                  {
+                     config.Ghoul_Parts[PARTS[p]].text = parseArray(config.Ghoul_Parts[PARTS[p]].text,DEFAULT_PARTS[PARTS[p]].text);
+                     config.Ghoul_Parts[PARTS[p]].image = getImageDir(config.Ghoul_Parts[PARTS[p]].image,PARTS[p] + "/White.dds");
+                     config.Ghoul_Parts[PARTS[p]].gradients = parseArray(config.Ghoul_Parts[PARTS[p]].gradients,DEFAULT_PARTS[PARTS[p]].gradients);
+                     config.Ghoul_Parts[PARTS[p]].offsetText = parsePoint(config.Ghoul_Parts[PARTS[p]].offsetText,DEFAULT_PARTS[PARTS[p]].offsetText.x,DEFAULT_PARTS[PARTS[p]].offsetText.y);
+                     config.Ghoul_Parts[PARTS[p]].offsetImage = parsePoint(config.Ghoul_Parts[PARTS[p]].offsetImage,DEFAULT_PARTS[PARTS[p]].offsetImage.x,DEFAULT_PARTS[PARTS[p]].offsetImage.y);
+                     config.Ghoul_Parts[PARTS[p]].scaleImage = parsePoint(config.Ghoul_Parts[PARTS[p]].scaleImage,DEFAULT_PARTS[PARTS[p]].scaleImage.x,DEFAULT_PARTS[PARTS[p]].scaleImage.y);
+                     config.Ghoul_Parts[PARTS[p]].showPercentage = Boolean(config.Ghoul_Parts[PARTS[p]].showPercentage);
+                     g = 0;
+                     while(g < config.Ghoul_Parts[PARTS[p]].gradients.length)
+                     {
+                        img = getImageDir(config.Ghoul_Parts[PARTS[p]].gradients[g].image,PARTS[p] + "/White.dds");
+                        belowPercent = Parser.parseNumber(config.Ghoul_Parts[PARTS[p]].gradients[g].belowPercent,-1);
+                        alpha = Parser.parsePositiveNumber(config.Ghoul_Parts[PARTS[p]].gradients[g].alpha,1);
+                        config.Ghoul_Parts[PARTS[p]].gradients[g] = parseHSBColor(config.Ghoul_Parts[PARTS[p]].gradients[g],0,0,0,0);
+                        config.Ghoul_Parts[PARTS[p]].gradients[g].belowPercent = belowPercent;
+                        config.Ghoul_Parts[PARTS[p]].gradients[g].image = img;
+                        config.Ghoul_Parts[PARTS[p]].gradients[g].alpha = alpha;
+                        g++;
+                     }
+                  }
+                  else
+                  {
+                     config.Ghoul_Parts[PARTS[p]] = clone(DEFAULT_PARTS[PARTS[p]]);
+                  }
+                  p++;
+               }
+            }
+            else
+            {
+               config.Ghoul_Parts = clone(DEFAULT_PARTS);
+            }
             errorCode = "useDynamicPowerArmorParts";
             config.useDynamicPowerArmorParts = Boolean(config.useDynamicPowerArmorParts);
             errorCode = "PowerArmor BackgroundImage";

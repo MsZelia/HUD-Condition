@@ -37,6 +37,8 @@ package
       
       private static const HUDTOOLS_MENU_RELOAD_CONFIG:String = MOD_NAME + "_RELOAD_CONFIG";
       
+      private static const HUDTOOLS_MENU_DEBUG_GHOUL:String = MOD_NAME + "_GHOUL";
+      
       private const PARTS:Array = ["LeftArm","RightArm","LeftLeg","RightLeg","Chest","Hat"];
       
       private var TEXTFIELDS:Array;
@@ -66,6 +68,8 @@ package
       private var HUDModeData:*;
       
       private var CharacterInfoData:*;
+      
+      private var HUDRightMetersData:*;
       
       public var inPowerArmor:Boolean = false;
       
@@ -113,12 +117,17 @@ package
       
       private var hudTools:SharedHUDTools;
       
+      private var debugGhoulMode:Boolean = false;
+      
+      private var lastGhoulMode:Boolean = false;
+      
       public function HUDCondition()
       {
          super();
          addEventListener(Event.ADDED_TO_STAGE,this.addedToStageHandler,false,0,true);
          this.HUDModeData = BSUIDataManager.GetDataFromClient("HUDModeData");
          this.CharacterInfoData = BSUIDataManager.GetDataFromClient("CharacterInfoData");
+         this.HUDRightMetersData = BSUIDataManager.GetDataFromClient("HUDRightMetersData");
          this.init();
       }
       
@@ -268,6 +277,10 @@ package
                   this.hudTools.AddMenuItem(HUDTOOLS_MENU_RELOAD_CONFIG,"Reload Config",true,false,250);
                }
                this.hudTools.AddMenuItem(HUDTOOLS_MENU_HIDE,"Force Hide",true,false,250);
+               if(config.debug)
+               {
+                  this.hudTools.AddMenuItem(HUDTOOLS_MENU_DEBUG_GHOUL,"DEBUG Ghoul",true,false,250);
+               }
             }
          }
          catch(e:Error)
@@ -286,6 +299,23 @@ package
             config.disableRealTimeEdit = false;
             this.loadConfig();
          }
+         else if(selectItem == HUDTOOLS_MENU_DEBUG_GHOUL)
+         {
+            this.debugGhoulMode = !this.debugGhoulMode;
+         }
+      }
+      
+      public function get isGhoul() : Boolean
+      {
+         if(this.debugGhoulMode)
+         {
+            return true;
+         }
+         if(this.HUDRightMetersData.data && !isNaN(this.HUDRightMetersData.data.feralPercent))
+         {
+            return this.HUDRightMetersData.data.feralPercent != -1;
+         }
+         return false;
       }
       
       public function isHUDModeDataChanged() : void
@@ -293,6 +323,12 @@ package
          if(config && config.useDynamicPowerArmorParts && this.inPowerArmor != this.HUDModeData.data.inPowerArmor)
          {
             this.inPowerArmor = this.HUDModeData.data.inPowerArmor;
+            initPartsConfig();
+            loadTextures();
+         }
+         if(config && config.useDynamicGhoulParts && this.isGhoul != this.lastGhoulMode)
+         {
+            this.lastGhoulMode = this.isGhoul;
             initPartsConfig();
             loadTextures();
          }
@@ -477,11 +513,23 @@ package
          TEXTFIELDS = [this.LA_tf,this.RA_tf,this.LL_tf,this.RL_tf,this.CH_tf,this.HA_tf];
       }
       
+      private function getConfigParts() : Object
+      {
+         var useGhoulParts:Boolean = Boolean(config.useDynamicGhoulParts) && this.isGhoul;
+         return this.inPowerArmor ? config.PowerArmor_Parts : (useGhoulParts ? config.Ghoul_Parts : config.Parts);
+      }
+      
+      private function getConfigBackgroundImage() : Object
+      {
+         var useGhoulParts:Boolean = Boolean(config.useDynamicGhoulParts) && this.isGhoul;
+         return this.inPowerArmor ? config.PowerArmor_BackgroundImage : (useGhoulParts ? config.Ghoul_BackgroundImage : config.BackgroundImage);
+      }
+      
       private function initPartsConfig() : void
       {
          var i:int = 0;
-         var lparts:* = this.inPowerArmor ? config.PowerArmor_Parts : config.Parts;
-         var lbgImage:* = this.inPowerArmor ? config.PowerArmor_BackgroundImage : config.BackgroundImage;
+         var lparts:* = this.getConfigParts();
+         var lbgImage:* = this.getConfigBackgroundImage();
          while(i < PARTS.length)
          {
             applyConfig(TEXTFIELDS[i]);
@@ -527,7 +575,7 @@ package
       {
          if(!config.disableBackgroundImage)
          {
-            var lbgImage:* = this.inPowerArmor ? config.PowerArmor_BackgroundImage : config.BackgroundImage;
+            var lbgImage:* = this.getConfigBackgroundImage();
             if(lbgImage.adjustColor)
             {
                applyColorMatrixFilter(this.TextureLoader,lbgImage.color);
@@ -542,7 +590,7 @@ package
          if(!config.disableParts)
          {
             var i:int = 0;
-            var lparts:* = this.inPowerArmor ? config.PowerArmor_Parts : config.Parts;
+            var lparts:* = this.getConfigParts();
             while(i < PARTS.length)
             {
                if(lparts[PARTS[i]].image != null && lparts[PARTS[i]].image.length > 4)
@@ -719,7 +767,7 @@ package
       {
          var partName:String = PARTS[partId];
          var isImageLoaded:Boolean = false;
-         var lparts:* = this.inPowerArmor ? config.PowerArmor_Parts : config.Parts;
+         var lparts:* = this.getConfigParts();
          var i:int = 0;
          while(i < lparts[partName].gradients.length)
          {
@@ -771,7 +819,7 @@ package
             }
             this.isHUDModeDataChanged();
             this.resetMessages();
-            lparts = this.inPowerArmor ? config.PowerArmor_Parts : config.Parts;
+            lparts = this.getConfigParts();
             if(this.conditions.length > 0)
             {
                foundPart = false;
@@ -843,6 +891,7 @@ package
                displayMessage(FULL_MOD_NAME + " : " + getQualifiedClassName(this.topLevel));
                displayMessage("HUDMode: " + this.HUDModeData.data.hudMode);
                displayMessage("inPA: " + this.inPowerArmor);
+               displayMessage("isGhoul: " + this.isGhoul);
                displayMessage("RenderTime: " + this.lastRenderTime + "/" + this.lastConditionsTime + " ms");
                displayMessage("ConfigUpdate: " + ((getTimer() - this.lastConfigUpdateTime) / 1000).toFixed(2) + "s ago");
                displayMessage("ConfigReloadIndex: " + this.configReloadIndex);
