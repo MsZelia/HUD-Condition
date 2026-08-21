@@ -222,6 +222,7 @@ package
       
       public function addedToStageHandler(param1:Event) : *
       {
+         this.updateVisibility();
          removeEventListener(Event.ADDED_TO_STAGE,this.addedToStageHandler);
          addEventListener(Event.REMOVED_FROM_STAGE,this.removedFromStageHandler,false,0,true);
          this.topLevel = stage.getChildAt(0);
@@ -230,6 +231,7 @@ package
             if(getQualifiedClassName(this.topLevel) == TITLE_HUDMENU)
             {
                BSUIDataManager.Subscribe("PlayerInventoryData",this.updateConditions);
+               BSUIDataManager.Subscribe("HUDModeData",this.updateVisibility);
                this.hudTools = new SharedHUDTools(MOD_NAME);
                this.hudTools.RegisterMenu(this.onBuildMenu,this.onSelectMenu);
                this.initConfigTimer();
@@ -247,6 +249,7 @@ package
       public function removedFromStageHandler(param1:Event) : *
       {
          BSUIDataManager.Unsubscribe("PlayerInventoryData",this.updateConditions);
+         BSUIDataManager.Unsubscribe("HUDModeData",this.updateVisibility);
          removeEventListener(Event.REMOVED_FROM_STAGE,this.removedFromStageHandler);
          if(stage)
          {
@@ -293,6 +296,7 @@ package
          if(selectItem == HUDTOOLS_MENU_HIDE)
          {
             this.forceHide = !this.forceHide;
+            this.updateVisibility();
          }
          else if(selectItem == HUDTOOLS_MENU_RELOAD_CONFIG)
          {
@@ -331,6 +335,17 @@ package
             this.lastGhoulMode = this.isGhoul;
             initPartsConfig();
             loadTextures();
+         }
+      }
+      
+      private function updateVisibility() : void
+      {
+         try
+         {
+            this.visible = !this.forceHide && this.isValidHUDMode();
+         }
+         catch(e:Error)
+         {
          }
       }
       
@@ -818,7 +833,6 @@ package
          try
          {
             t1 = Number(getTimer());
-            this.visible = !this.forceHide && this.isValidHUDMode();
             if(!this.visible)
             {
                return;
