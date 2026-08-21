@@ -23,7 +23,7 @@ package
       
       public static const MOD_NAME:String = "HUDCondition";
       
-      public static const MOD_VERSION:String = "1.0.8";
+      public static const MOD_VERSION:String = "1.0.9";
       
       public static const FULL_MOD_NAME:String = MOD_NAME + " " + MOD_VERSION;
       
@@ -395,12 +395,13 @@ package
             {
                var jsonData:Object;
                var errorCode:String;
+               var line:uint;
                try
                {
                   if(lastConfig != loader.data)
                   {
                      errorCode = "JSONDecoder";
-                     jsonData = new JSONDecoder(loader.data,true).getValue();
+                     jsonData = new JSONDecoder(loader.data,false).getValue();
                      errorCode = "ConfigInit";
                      HUDConditionConfig.init(jsonData);
                      errorCode = "initMovieClips";
@@ -416,14 +417,19 @@ package
                      lastConfigUpdateTime = getTimer();
                   }
                }
+               catch(e:JSONParseError)
+               {
+                  line = e.text.substr(0,e.location).match(/\n/g).length + 1;
+                  ShowHUDMessage("Error parsing config: " + e.message + " in line " + line);
+               }
                catch(e:Error)
                {
                   ShowHUDMessage("Error parsing config (" + errorCode + "): " + e);
                }
             };
-            ioErrorHandler = function(param1:*):void
+            ioErrorHandler = function(e:IOErrorEvent):void
             {
-               ShowHUDMessage("Error loading config: " + param1.text);
+               ShowHUDMessage("Error loading config: " + e.text);
             };
             url = new URLRequest(CONFIG_FILE);
             loader = new URLLoader();
