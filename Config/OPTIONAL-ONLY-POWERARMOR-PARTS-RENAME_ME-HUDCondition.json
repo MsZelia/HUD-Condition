@@ -22,7 +22,7 @@
 	
 	
 	// CONDITIONS DISPLAY SETTINGS
-	"refresh": 100,
+	"refresh": 500,
 	
 	"textsScale": {"x": 1.0, "y": 1.0},
 	"imagesScale": {"x": 1.0, "y": 1.0},
@@ -82,7 +82,8 @@
 			"offsetText": {"x": 60, "y": -15},
 			"offsetImage": {"x": 0, "y": 0},
 			"scaleImage": {"x": 0.6, "y": 0.6},
-			"showPercentage": true
+			"showPercentage": true,
+			"showIfNotEquipped": false
 		},
 		"RightArm": {
 			"text": ["right arm", " ra "],
