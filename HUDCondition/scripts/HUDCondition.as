@@ -23,7 +23,7 @@ package
       
       public static const MOD_NAME:String = "HUDCondition";
       
-      public static const MOD_VERSION:String = "1.0.9";
+      public static const MOD_VERSION:String = "1.0.10";
       
       public static const FULL_MOD_NAME:String = MOD_NAME + " " + MOD_VERSION;
       
@@ -890,10 +890,23 @@ package
                j = 0;
                while(j < PARTS.length)
                {
-                  TEXTURES[j].visible = foundParts[j];
-                  if(!foundParts[j])
+                  if(foundParts[j])
+                  {
+                     TEXTURES[j].visible = true;
+                  }
+                  else
                   {
                      TEXTFIELDS[j].text = "";
+                     if(!config.disableParts && lparts[PARTS[j]].showIfNotEquipped)
+                     {
+                        loadConditionalImage(j,100);
+                        applyConditionColor(TEXTFIELDS[j],100);
+                        TEXTURES[j].visible = true;
+                     }
+                     else
+                     {
+                        TEXTURES[j].visible = false;
+                     }
                   }
                   j++;
                }
